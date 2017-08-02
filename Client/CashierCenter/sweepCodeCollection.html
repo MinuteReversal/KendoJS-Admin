@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>扫码收款</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <link href="/JSLibrary/kendo/styles/web/kendo.common.css" rel="stylesheet" />
+    <link href="/JSLibrary/kendo/styles/web/kendo.default.css" rel="stylesheet" />
+    <link href="/CSS/StyleSheet.css" rel="stylesheet" />
+    <link href="/CSS/StyleSheet.css" rel="stylesheet" />
+    <!--常用库-->
+    <script src="/JSLibrary/guid.js"></script>
+    <script src="/JSLibrary/dateformat.js"></script>
+    <!--js框架-->
+    <script src="/JSLibrary/jquery-2.2.4.js"></script>
+    <script src="/JSLibrary/jquery.signalR-2.2.0.js"></script>
+    <script src="/JSLibrary/hubs.js"></script>
+    <script src="/JSLibrary/jquery.qrcode.min.js"></script>
+    <!--kendo-->
+    <script src="/JSLibrary/kendo/kendo.all.js"></script>
+    <script src="/JSLibrary/kendo/kendo.aspnetmvc.js"></script>
+    <script src="/JSLibrary/kendo/cultures/kendo.culture.zh-CHS.js"></script>
+    <script src="/JSLibrary/kendo/messages/kendo.messages.zh-CN.js"></script>
+    <!--kendo自定义组件-->
+    <script src="/JSLibrary/kendoWidget/CustomValidatorDisplayName/CustomValidatorDisplayName.js"></script>
+    <script src="/JSLibrary/kendoWidget/Confirm/Confirm.js"></script>
+    <script src="/JSLibrary/kendoWidget/LoadingMask/LoadingMask.js"></script>
+    <script src="/JSLibrary/kendoWidget/Notification/Notification.js"></script>
+    <script src="/JSLibrary/kendoWidget/Alert/Alert.js"></script>
+    <script src="/JSLibrary/kendoWidget/Confirm/Confirm.js"></script>
+    <!--自定义框架-->
+    <script src="/WebConfig.js"></script>
+    <script src="/Model/HtmlModel.js"></script>
+    <script src="/Model/RoleModel.js"></script>
+    <script src="/Model/UserModel.js"></script>
+    <script src="/Javascript/user.js"></script>
+    <script src="/JSLibrary/framework.js"></script>
+    <!--业务-->
+    <script src="/Javascript/indexdebug.js"></script>
+    <script src="/Javascript/main.js"></script>
+    <script src="/Javascript/CashierCenter/receivables.js"></script>
+    <script src="/Javascript/CashierCenter/sweepCodeCollection.js"></script>
+    <script src="/Javascript/VerificationCenter/verification.js"></script>
+    <script src="/Javascript/VerificationCenter/writeOff.js"></script>
+</head>
+<body>
+    <div class="mainPage" data-page="sweepCodeCollection">
+        <div class="title">
+            扫码收款
+        </div>
+        <div class="content" id="payMoney">
+            <div class="money">
+                <p class="moneyNum">
+                    <i>￥</i>
+                    <span data-bind="text:money">0</span>
+                </p>
+                <p class="moneyPrompt">收款金额</p>
+            </div>
+            <div class="numberKey">
+                <ul id="moneyKeyBoard">
+                    <li data-value="7">7</li>
+                    <li data-value="8">8</li>
+                    <li data-value="9">9</li>
+                    <li data-value="4">4</li>
+                    <li data-value="5">5</li>
+                    <li data-value="6">6</li>
+                    <li data-value="1">1</li>
+                    <li data-value="2">2</li>
+                    <li data-value="3">3</li>
+                    <li data-value="0">0</li>
+                    <li data-value=".">.</li>
+                    <li data-value="ac" class="small">清零</li>
+                </ul>
+            </div>
+            <div class="payType">
+                <div class="weChat" data-type="微信">
+                    <button id="F2" data-bind="click:onWeChat"><img src="/Image/weChat.png" alt="微信" /></button>
+                    <p>快捷键"<kbd>F2</kbd>"</p>
+                </div>
+                <div class="alipay" data-type="支付宝">
+                    <button id="F4" data-bind="click:onAlipay"><img src="/Image/alipay.png" alt="支付宝" /></button>
+                    <p>快捷键"<kbd>F4</kbd>"</p>
+                </div>
+                <div class="applePay" data-type="苹果">
+                    <button id="F6" data-bind="click:onApplePay"><img src="/Image/applePay.png" alt="苹果" /></button>
+                    <p>快捷键"<kbd>F6</kbd>"</p>
+                </div>
+                <div class="samsungPay" data-type="三星">
+                    <button id="F8" data-bind="click:onSamsungPay"><img src="/Image/samsungPay.png" alt="三星" /></button>
+                    <p>快捷键"<kbd>F8</kbd>"</p>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="payNum" style="display: none;">
+            <div class="payType"><img data-bind="attr:{src:getPayTypeImage}" alt="" /></div>
+            <div class="money">
+                <p class="moneyNum">
+                    <i>￥</i>
+                    <span data-bind="text:money"></span>
+                </p>
+            </div>
+            <div class="writeOff">
+                <p>
+                    请扫描或输<span data-bind="text:getPayTypeCHS"></span>支付码（条码、二维码）
+                </p>
+                <input id="payCode" data-bind="value:payCode" class="k-textbox" type="number" pattern="[0-9]*" disabled="disabled" />
+            </div>
+            <div class="numberKey">
+                <ul id="passwordKeyBoard">
+                    <li data-value="7">7</li>
+                    <li data-value="8">8</li>
+                    <li data-value="9">9</li>
+                    <li data-value="4">4</li>
+                    <li data-value="5">5</li>
+                    <li data-value="6">6</li>
+                    <li data-value="1">1</li>
+                    <li data-value="2">2</li>
+                    <li data-value="3">3</li>
+                    <li data-value="0">0</li>
+                    <li data-value="ac" class="small">清空</li>
+                    <li data-value="\n" class="small">回车</li>
+                </ul>
+            </div>
+            <div class="cancel">
+                <span>取消收款</span>
+            </div>
+        </div>
+        <div id="PayingWindow" data-bind="visible:isShowPayinWindow">
+            <div class="k-overlay" style="display: block; opacity: 0.5;"></div>
+            <div class="windowDetail">
+                <div class="connecting" data-bind="visible:isConnecting">
+                    <div class="payType">
+                        <img data-bind="attr:{src:getPayTypeImage}" alt="TypeIcon"/>
+                    </div>
+                    <div class="scanOK">扫码输入成功</div>
+                    <div class="text">正在与服务器通讯请稍候</div>
+                    <div class="countdown">
+                        <span data-bind="text:_connectingSeconds">30</span>s
+                    </div>
+                </div>
+                <div class="success" data-bind="visible:isSuccess">
+                    <img class="resultImage" src="/Image/success.png" alt=""/>
+                    <div class="result">支付成功</div>
+                    <div class="countdown">
+                        <span data-bind="text:_successSeconds">3</span>秒后自动返回
+                    </div>
+                </div>
+                <div class="failure" data-bind="visible:isFailure">
+                    <img class="resultImage" src="/Image/failure.png" alt=""/>
+                    <div class="result">支付失败</div>
+                    <div class="reason">(与服务器通讯超时)</div>
+                    <div class="tip">请按<kbd>Enter</kbd>键返回重试</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

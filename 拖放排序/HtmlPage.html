@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../js/jquery.min.js"></script>
+    <!--<script src="../js/kendo.all.min.js"></script>-->
+    <script src="http://pub.uxiang.cn/kendo/2016.1.112/js/kendo.all.min.js"></script>
+
+    <script src="../js/kendo.aspnetmvc.min.js"></script>
+    <script src="../js/kendo.dataviz.min.js"></script>
+</head>
+<body>
+    <div id="sortable">
+        <span>
+            <span>Item1</span>
+            <span>Item11</span>
+        </span>
+        <span>Item2</span>
+        <span>Item3</span>
+        <div>
+            <span>Item4</span>
+            <span>Item5</span>
+            <span>Item6</span>
+        </div>
+    </div>
+
+    <script>
+        $("#sortable").kendoSortable({
+            filter: ">span",
+            ignore: ">span"
+        });
+
+        $("#sortable").append("");
+    </script>
+
+
+    <ul id="parent">
+        <li class="list-item">Apples</li>
+        <li class="list-item">Grapefruits</li>
+        <li class="list-item">Bananas</li>
+        <li class="list-item">
+            Others
+            <a>afdsafsa</a>
+            <div>
+                <ul id="nested2" class="list">
+                    <li class="list-item">Cranberries</li>
+                    <li class="list-item">Pineapples</li>
+                    <li class="list-item">Strawberries</li>
+                </ul>
+            </div>
+        </li>
+        <li class="list-item">
+            Others
+            <div>
+                <ul id="nested" class="list">
+                    <li class="list-item">Cranberries</li>
+                    <li class="list-item">Pineapples</li>
+                    <li class="list-item">Strawberries</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <script>
+        function placeholder(element) {
+            return $("<li style='color: red;' class='list-item' id='placeholder'>Drop Here!</li>");
+        }
+
+        $("#parent").kendoSortable({
+            filter: ">li.list-item", //filter only list-items that are direct child of the Sortable container. Use ".list-item" to allow parent items to use the nested sortable.
+            ignore: ".list > li", //ignore nested list-items
+            placeholder: placeholder
+        });
+        //$("#parent > li > ul").kendoSortable({
+
+        //    filter: ".list-item",
+        //    placeholder: placeholder
+        //});
+    </script>
+
+
+    <ul class="mobileBdList third" id="menuList" style="touch-action: pan-y;">
+        <li class="bdList list-item" data-index="1" data-bind="click:onClickMenu">
+            <a class="handler" href="javascript:void(0);">
+                <i class="menuIcon"></i>
+                <span data-bind="text:Name">菜单1</span>
+            </a>
+            <div class="mobileListChild">
+                <ul class="dowebokChild" style="touch-action: pan-y;">
+                    <li class="list-item" data-index="4" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单4</span></a>
+                    </li>
+                    <li class="list-item" data-index="5" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单5</span></a>
+                    </li>
+                    <li class="list-item" data-index="6" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单6</span></a>
+                    </li>
+                    <li class="list-item" data-index="7" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单7</span></a>
+                    </li>
+                    <li class="list-item" data-index="8" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单8</span></a>
+                    </li>
+                    <li class="hidden" data-role="btnAddChildMenu" data-bind="click:onAddChild,css:{hidden:invisableAddChild}">
+                        <a title="最多添加5个子菜单" href="javascript:void(0);">
+                            <span><i class="menuAdd"></i></span>
+                        </a>
+                    </li>
+                </ul>
+                <i class="arrowOut"></i>
+                <i class="rrowIn"></i>
+            </div>
+        </li>
+        <li class="bdList list-item" data-index="2" data-bind="click:onClickMenu">
+            <a class="handler" href="javascript:void(0);">
+                <i class="menuIcon"></i>
+                <span data-bind="text:Name">菜单2</span>
+            </a>
+            <div class="mobileListChild">
+                <ul class="dowebokChild" style="touch-action: pan-y;">
+                    <li class="list-item" data-index="9" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单9</span></a>
+                    </li>
+                    <li class="list-item" data-index="10" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单10</span></a>
+                    </li>
+                    <li class="list-item" data-index="11" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单11</span></a>
+                    </li>
+                    <li class="list-item" data-index="12" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单12</span></a>
+                    </li>
+                    <li class="list-item" data-index="13" data-bind="click:onClickMenu">
+                        <a href="javascript:void(0);"><span data-bind="text:Name">子菜单13</span></a>
+                    </li>
+                    <li class="hidden" data-role="btnAddChildMenu" data-bind="click:onAddChild,css:{hidden:invisableAddChild}">
+                        <a title="最多添加5个子菜单" href="javascript:void(0);">
+                            <span><i class="menuAdd"></i></span>
+                        </a>
+                    </li>
+                </ul>
+                <i class="arrowOut"></i>
+                <i class="rrowIn"></i>
+            </div>
+        </li>
+        <li class="bdList list-item" data-index="3" data-bind="click:onClickMenu">
+            <a class="handler" href="javascript:void(0);">
+                <i class="menuIcon"></i>
+                <span data-bind="text:Name">菜单3</span>
+            </a>
+            <ul id="ccc" class="dowebokChild">
+                <li class="list-item" data-index="14" data-bind="click:onClickMenu">
+                    <span data-bind="text:Name">子菜单14</span>
+                </li>
+                <li class="list-item" data-index="15" data-bind="click:onClickMenu">
+                    <span data-bind="text:Name">子菜单15</span>
+                </li>
+                <li class="list-item" data-index="16" data-bind="click:onClickMenu">
+                    <span data-bind="text:Name">子菜单16</span>
+                </li>
+                <li class="list-item" data-index="13" data-bind="click:onClickMenu">
+                    <a href="javascript:void(0);"><span data-bind="text:Name">子菜单13</span></a>
+                    <input type="text"/>
+                </li>
+                <li class="list-item menuActive" data-index="18" data-bind="click:onClickMenu">
+                    <span data-bind="text:Name">子菜单18</span>
+                </li>
+                <li class="hidden" data-role="btnAddChildMenu" data-bind="click:onAddChild,css:{hidden:invisableAddChild}">
+                    <a title="最多添加5个子菜单" href="javascript:void(0);">
+                        <span><i class="menuAdd"></i></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="bdList" id="btnAddMenu" style="display: none;" data-role="btnAddMenu">
+            <a title="最多添加3个一级菜单" class="handler" href="javascript:void(0);">
+                <i class="menuAdd"></i><span style="display: none;">添加菜单</span>
+            </a>
+        </li>
+    </ul>
+    <script>
+        $("#menuList").kendoSortable({
+            filter: ">li.list-item",
+            ignore: ".dowebokChild *",
+            placeholder: placeholder
+        });
+
+        $("#ccc").kendoSortable({
+            filter: ".list-item"
+        });
+    </script>
+</body>
+</html>

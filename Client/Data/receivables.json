@@ -1,0 +1,23 @@
+﻿{
+  "Data": [
+    {
+      "TradingTime": "/Date(1464233014654)/",
+      "OrderNo": "20160520123",
+      "Money": 654,
+      "PayMethod": "支付宝",
+      "TradeStatus": "WaitPay",
+      "CompletionTime": "/Date(1464233014654)/",
+      "PayCode": "283761317310916064",
+      "TransactionNo": "2016051921001004210274847569",
+      "Operator": "小明",
+      "TimePayClose": "/Date(1464233014654)/",
+      "TimeCanceled": "/Date(1464233014654)/",
+      "TimeRefunded": "/Date(1464233014654)/",
+      "AlipayTradeNo": "000000",
+      "AuthCode": "123123",
+      "RefundRemark": "不想要"
+    }
+  ],
+  "Error": "",
+  "Total": 1
+}

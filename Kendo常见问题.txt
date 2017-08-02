@@ -1,0 +1,10 @@
+Combo或DropDownList报错不能slice,原因是schema找不到Data,具体原因是没有使用mvc-ajax
+解决办法
+.DataSource(source =>
+                              {
+                                  source.Custom().Schema(s => s.Data("Data"));
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetList", "Role");
+                                  }).ServerFiltering(true);
+                              })

@@ -1,0 +1,20 @@
+﻿{
+  "Error": "",
+  "Data": [
+    {
+      "WriteOffTime": "/Date(1476175061638)/",
+      "Coupons": "不要钱啦",
+      "CouponType": "Exchange",
+      "CouponPassword": "123",
+      "Operator": "张三"
+    },
+    {
+      "WriteOffTime": "/Date(1476175162148)/",
+      "Coupons": "打8折",
+      "CouponType": "Coupon",
+      "CouponPassword": "123",
+      "Operator": "张三"
+    }
+  ],
+  "Total": 2
+}

@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+<button class="k-button" onclick="kendo.alert('hello');">弹出框</button>
+<script>
+
+    //超文本匹配
+    document.querySelector("html").innerHTML.match(/(?=<body[^>]*>)(.|\r|\n|\s)*(?!<\/body>)/i)[0].replace("<body", "<div").replace("body>", "div>")
+</script>
+</body>
+</html>

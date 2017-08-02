@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>电子券核销</title>
+    <link href="/JSLibrary/kendo/styles/web/kendo.common.css" rel="stylesheet" />
+    <link href="/JSLibrary/kendo/styles/web/kendo.default.css" rel="stylesheet" />
+    <link href="/CSS/StyleSheet.css" rel="stylesheet" />
+    <!--常用库-->
+    <script src="/JSLibrary/guid.js"></script>
+    <script src="/JSLibrary/dateformat.js"></script>
+    <!--js框架-->
+    <script src="/JSLibrary/jquery-2.2.4.js"></script>
+    <!--kendo-->
+    <script src="/JSLibrary/kendo/kendo.all.js"></script>
+    <script src="/JSLibrary/kendo/kendo.aspnetmvc.js"></script>
+    <script src="/JSLibrary/kendo/cultures/kendo.culture.zh-CHS.js"></script>
+    <script src="/JSLibrary/kendo/messages/kendo.messages.zh-CN.js"></script>
+    <!--kendo自定义组件-->
+    <script src="/JSLibrary/kendoWidget/CustomValidatorDisplayName/CustomValidatorDisplayName.js"></script>
+    <script src="/JSLibrary/kendoWidget/Confirm/Confirm.js"></script>
+    <script src="/JSLibrary/kendoWidget/LoadingMask/LoadingMask.js"></script>
+    <script src="/JSLibrary/kendoWidget/Notification/Notification.js"></script>
+    <!--自定义框架-->
+    <script src="/WebConfig.js"></script>
+    <script src="/Model/HtmlModel.js"></script>
+    <script src="/Model/RoleModel.js"></script>
+    <script src="/Model/UserModel.js"></script>
+    <script src="/Javascript/user.js"></script>
+    <script src="/JSLibrary/framework.js"></script>
+</head>
+<body>
+    <div class="mainPage" data-page="writeOff">
+        <div class="title">
+            电子券核销
+        </div>
+        <div id="writeOffContent" class="content">
+            <div id="scan">
+                <div class="writeOff">
+                    <p>请扫描或输入电子券密码</p>
+                    <input id="password" type="number" class="k-textbox" disabled="disabled" />
+                </div>
+                <div class="numberKey">
+                    <ul id="writeOffNumberKey">
+                        <li data-value="7" data-keycode="103">7</li>
+                        <li data-value="8" data-keycode="104">8</li>
+                        <li data-value="9" data-keycode="105">9</li>
+                        <li data-value="4" data-keycode="100">4</li>
+                        <li data-value="5" data-keycode="101">5</li>
+                        <li data-value="6" data-keycode="102">6</li>
+                        <li data-value="1" data-keycode="97">1</li>
+                        <li data-value="2" data-keycode="98">2</li>
+                        <li data-value="3" data-keycode="99">3</li>
+                        <li data-value="0" data-keycode="96">0</li>
+                        <li data-value="ac" data-keycode="8" class="empty small">清空(<kbd>Esc</kbd>)</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="productsList">
+                <div class="info">券号：<span class="ticketNumber"></span></div>
+                <div id="productsGrid"></div>
+                <div class="bottons">
+                    <div><button class="confirmBtn">核销(<kbd>Enter</kbd>)</button></div>
+                    <div><button class="cancelBtn">取消(<kbd>Esc</kbd>)</button></div>
+                </div>
+            </div>
+        </div>
+        <script id="javascriptTemplate" type="text/x-kendo-template">
+            <div class="ticketDetailWindow">
+                <div class="k-overlay" style="display: block; opacity: 0.5;"></div>
+                <div class="voucher">
+                    # var className="orange";#
+                    # if(Status==="Unused")className="orange";#
+                    # if(Status==="Validated")className="blue";#
+                    # if(Status==="Expired")className="gray";#
+                    # if(Status==="ECommerce")className="red";#
+                    <div class="voucherInfo #=className#">
+                        <div class="close">
+                            <span></span>
+                        </div>
+                        <div class="voucherName">
+                            <p>#=Title#</p>
+                            <p>#=SubTitle#</p>
+                        </div>
+                        <p class="voucherNum">#=NO#</p>
+                        <p class="voucherTime">有效期：#=MSJsonDateToDate(ExpiredDate).Format("yyyy-MM-dd")#</p>
+                    </div>
+                    <div class="promptInfo">
+                        #if(Status==="Unused"){#
+                        <button class="confirmBtn">确认核销</button>
+                        #}#
+                        #if(Status==="Validated"){#
+                        <div>
+                            <p><lable class="lableText">核销时间：</lable>#=MSJsonDateToDate(VerificationDate).Format("yyyy-MM-dd")#</p>
+                            <p><lable class="lableText">核销地点：</lable>#:VerificationAddress#</p>
+                            <p><lable class="lableText">核销人：</lable>#:OP#</p>
+                        </div>
+                        #}#
+                        #if(Status==="Expired"){#
+                        <div class="overdue">
+                            此券已过期
+                        </div>
+                        #}#
+                        #if(Status==="ECommerce"){#
+                        <div>
+                            <a class="viewProducts">查看商品详情(<kbd>Enter</kbd>)</a>
+                        </div>
+                        #}#
+                    </div>
+                </div>
+            </div>
+        </script>
+    </div>
+</body>
+</html>

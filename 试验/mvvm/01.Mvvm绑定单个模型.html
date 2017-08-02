@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <button class="k-button" data-bind="click:onAdd">添加</button><button class="k-button" data-bind="click:onGetData">获取全部</button>
+    <div data-bind="visible:isShow">
+        <div>
+            <label for="name">姓名</label>
+            <input id="name" class="k-input" type="text" data-bind="value:info.name" />
+        </div>
+        <div>
+            <label for="age">年龄</label>
+            <input id="age" data-role="numerictextbox" type="number" data-bind="value:info.age" data-format="{0:0}" />
+        </div>
+        <div>
+            <input id="male" class="k-radio" type="radio" data-bind="checked:info.isMale" value="true" data-type="boolean" />
+            <label for="male" class="k-radio-label">男</label>
+            <input id="female" class="k-radio" type="radio" data-bind="checked:info.isMale" value="false" data-type="boolean" />
+            <label for="female" class="k-radio-label">女</label>
+        </div>
+        <div>
+            <button class="k-button" data-bind="click:onClick" type="button">获取值</button>
+            <button class="k-button" data-bind="click:onDelete" type="button">删除</button>
+        </div>
+    </div>
+    <script>
+        var vm = kendo.observable({
+            info: null,
+            isShow: function () {
+                var me = this;
+                return me.get("info") !== null;
+            },
+            onGetData: function () {
+                alert(JSON.stringify(this.toJSON()));
+            },
+            onAdd: function (e) {
+                this.set("info", {
+                    name: "zhy",
+                    age: 32,
+                    isMale: true
+                });
+            },
+            onClick: function (e) {
+                alert(JSON.stringify(e.data));
+            },
+            onDelete: function (e) {
+                this.set("info", null);
+            }
+        });
+        kendo.bind($("body"), vm);
+    </script>
+</body>
+</html>

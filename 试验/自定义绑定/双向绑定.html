@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <input data-bind="numericValue: number" />
+    Input value: <span data-bind="text: number"></span>
+    <script>
+        kendo.data.binders.numericValue = kendo.data.Binder.extend({
+            init: function (element, bindings, options) {
+                //call the base constructor
+                kendo.data.Binder.fn.init.call(this, element, bindings, options);
+
+                var that = this;
+                //listen for the change event of the element
+                $(that.element).on("change", function () {
+                    that.change(); //call the change function
+                });
+            },
+            refresh: function () {
+                var that = this,
+                    value = that.bindings["numericValue"].get(); //get the value from the View-Model
+
+                $(that.element).val(value); //update the HTML input element
+            },
+            change: function () {
+                var value = this.element.value;
+                //in this example the View-Model will be updated only if the value of the input is a number
+                if (!isNaN(value)) {
+                    this.bindings["numericValue"].set(value); //update the View-Model
+                }
+            }
+        });
+
+        //View-Model source
+        var viewModel = kendo.observable({
+            number: 10
+        });
+
+        kendo.bind(document.body, viewModel);
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Ô­ÉúµÄhtml input  type="radio" checked="checked" enable="enable"
+,javascript   document.getElementById():  DOMelements.checked=true
+,jquery      $("form>p.aaa['']").prop("",true)
+,asp.net mvc input @Html.Checkbi(x=>x..)
+,kendoJS input  $("selector").data("kendoRadio").value("")
+,KendoMVC input @Html.Kendo().Text().check(false)  => js options

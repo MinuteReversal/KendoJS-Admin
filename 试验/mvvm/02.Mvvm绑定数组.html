@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <button class="k-button" data-bind="click:onAdd">添加</button><button class="k-button" data-bind="click:onGetData">获取全部</button>
+    <div data-template="item-template" data-bind="source: list"></div>
+    <script id="item-template" type="text/x-kendo-template">
+        <div>
+            <div>
+                <label for="name">姓名</label>
+                <input id="name" class="k-input" type="text" data-bind="value: name" />
+            </div>
+            <div>
+                <label for="age">年龄</label>
+                <input id="age" data-role="numerictextbox" type="number" data-bind="value: age" data-format="{0:0}" />
+            </div>
+            <div>
+                <label for="age">评分</label>
+                <input id="age" data-role="slider" type="number" data-bind="value: score" min="#= scoremin #" max="#= scoremax #" />
+            </div>
+            <div>
+                <label for="age">是否启用</label>
+                <input id="age" data-role="kendo.mobile.ui.Switch" type="checkbox" data-bind="checked: isEnable" 
+                       data-on-label=""
+                       data-off-label="" />
+            </div>
+            <div>
+                <button class="k-button" data-bind="click:onGet" type="button">获取值</button>
+                <button class="k-button" data-bind="click:onDelete" type="button">删除</button>
+            </div>
+        </div>
+    </script>
+    <script>
+        var Person = kendo.data.Model.define({
+            fields: {
+                "name": {
+                    type: "string",
+                    defaultValue: "Hello"
+                },
+                "age": {
+                    type: "number",
+                    defaultValue: 18
+                },
+                "score": {
+                    type: "number",
+                    defaultValue: 5
+                },
+                "scoremax": {
+                    type: "number",
+                    defaultValue: 10
+                },
+                "scoremin": {
+                    type: "number",
+                    defaultValue: 0
+                },
+                "isEnable": {
+                    type: "boolean",
+                    defaultValue: false
+                }
+            }
+        });
+
+        var vm = kendo.observable({
+            list: [],
+            onGet: function (e) {
+                alert(JSON.stringify(e.data));
+            },
+            onGetData: function () {
+                alert(JSON.stringify(this.toJSON()));
+            },
+            onAdd: function (e) {
+                this.get("list").push(new Person());
+            },
+            onDelete: function (e) {
+                var list = this.get("list");
+                list.splice(list.indexOf(e.data), 1);
+            }
+        });
+        kendo.bind($("body"), vm);
+    </script>
+</body>
+</html>

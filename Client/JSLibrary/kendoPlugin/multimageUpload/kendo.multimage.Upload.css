@@ -1,0 +1,74 @@
+﻿[data-role="imageItem"] {
+    margin: 3px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    border-image: none;
+    width: 297px;
+    height: 250px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+}
+
+    [data-role="imageItem"] > img {
+        width: 100%;
+        height: 100%;
+    }
+
+    [data-role="imageItem"] [data-role="acions"] {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -100%;
+        height: 40px;
+        background: #ffffff;
+        background: rgba(255,255,255,0.7);
+        text-align: right;
+        transition: top 0.5s ease-in-out;
+    }
+
+    [data-role="imageItem"] .multi-image-mask {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #000000;
+        background: rgba(0,0,0,0.7);
+    }
+
+        [data-role="imageItem"] .multi-image-mask > span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+    [data-role="imageItem"]:hover [data-role="acions"] {
+        top: 0;
+    }
+
+    [data-role="imageItem"] [data-role="acions"] > i {
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+.multi-image-add-item-button {
+    position: relative;
+    width: 297px;
+    height: 250px;
+    border-radius: 10px;
+    float: left;
+    margin: 3px;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 80px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+}
+
+    .multi-image-add-item-button .k-font-icon.k-i-insert-image {
+        font-size: 100px;
+    }

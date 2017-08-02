@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮收款明细</title>
+    <link href="/JSLibrary/kendo/styles/web/kendo.common.css" rel="stylesheet" />
+    <link href="/JSLibrary/kendo/styles/web/kendo.rtl.css" rel="stylesheet" />
+    <link href="/JSLibrary/kendo/styles/web/kendo.nova.css" rel="stylesheet" />
+    <link href="/CSS/StyleSheet.css" rel="stylesheet" />
+    <!--常用库-->
+    <script src="//JSLibrary/guid.js"></script>
+    <script src="//JSLibrary/dateformat.js"></script>
+    <!--js框架-->
+    <script src="//JSLibrary/jquery-2.2.4.js"></script>
+    <!--kendo-->
+    <script src="//JSLibrary/kendo/kendo.all.js"></script>
+    <script src="//JSLibrary/kendo/kendo.aspnetmvc.js"></script>
+    <script src="//JSLibrary/kendo/cultures/kendo.culture.zh-CHS.js"></script>
+    <script src="//JSLibrary/kendo/messages/kendo.messages.zh-CN.js"></script>
+    <!--kendo自定义组件-->
+    <script src="//JSLibrary/kendoWidget/CustomValidatorDisplayName/CustomValidatorDisplayName.js"></script>
+    <script src="//JSLibrary/kendoWidget/Confirm/Confirm.js"></script>
+    <script src="//JSLibrary/kendoWidget/LoadingMask/LoadingMask.js"></script>
+    <script src="//JSLibrary/kendoWidget/Notification/Notification.js"></script>
+    <!--自定义框架-->
+    <script src="//WebConfig.js"></script>
+    <script src="//Model/HtmlModel.js"></script>
+    <script src="//Model/RoleModel.js"></script>
+    <script src="//Model/UserModel.js"></script>
+    <script src="//Javascript/user.js"></script>
+    <script src="//JSLibrary/framework.js"></script>
+</head>
+<body>
+    <div data-page="receivables">
+        <script type="text/x-kendo-template" id="template">
+            # var isCancel = (TradeStatus == 'WaitCancel') || (TradeStatus == 'Canceled'); #
+            # var isRefund = (TradeStatus == 'WaitRefund') || (TradeStatus == 'Refunded'); #
+            # var isPaid = (TradeStatus == 'Paid') || (TradeStatus == 'WaitRefund') || (TradeStatus == 'Refunded'); #
+            # var isPayTimeout = (TradeStatus == 'PaidTimeout'); #
+            <div class='trade-details'>
+                <ul>
+                    #if(isPayTimeout){#
+                    <li><label>交易关闭时间:</label>#= TimePayClose.Format('yyyy-MM-dd HH:mm:ss') #</li>
+                    #}#
+                    #if(isPaid){#
+                    <li><label>支付完成时间:</label>#= TimePaid.Format('yyyy-MM-dd HH:mm:ss') #</li>
+                    #}#
+                    #if(isCancel){#
+                    <li><label>交易取消时间:</label>#= TimeCanceled.Format('yyyy-MM-dd HH:mm:ss') #</li>
+                    #}#
+                    #if(isRefund){#
+                    <li><label>退款完成时间:</label>#= TimeRefunded.Format('yyyy-MM-dd HH:mm:ss') #</li>
+                    <li><label>退款原因:</label>#= RefundRemark #</li>
+                    #}#
+                    <li><label>支付宝交易号:</label>#= AlipayTradeNo #</li>
+                    <li><label>当面付条码:</label>#= AuthCode #</li>
+                </ul>
+            </div>
+        </script>
+        <div class="title">
+            收款明细
+        </div>
+        <div id="searchForm" class="searchForm">
+            <div>
+                <label for="searchTradingTimeStart">交易时间</label>
+                <input id="searchTradingTimeStart" type="date" data-role="datetimepicker"
+                       data-bind="value:TradingTimeStart"
+                       data-format="yyyy-MM-dd HH:mm"
+                       data-interval="1" />
+                <label for="searchTradingTimeEnd">至</label>
+                <input id="searchTradingTimeEnd" type="date" data-role="datetimepicker"
+                       data-bind="value:TradingTimeEnd"
+                       data-format="yyyy-MM-dd HH:mm"
+                       data-interval="1" />
+                <label for="searchOrderNo">订单号</label>
+                <input id="searchOrderNo" type="text" class="k-textbox" data-bind="value:OrderNo" placeholder="订单号" />
+            </div>
+            <div>
+                <label for="searchPayChannel">支付渠道</label>
+                <select id="searchPayChannel" type="text" class="k-textbox"
+                        data-bind="value:PayChannel"
+                        data-option-label="全部"
+                        data-value-primitive="true"
+                        data-role="dropdownlist">
+                    <option value="支付宝">支付宝</option>
+                    <option value="微信">微信</option>
+                </select>
+                <label for="searchTradeStatus">交易状态</label>
+                <select id="searchTradeStatus" type="text" class="k-textbox"
+                        data-bind="value:TradeStatus"
+                        data-option-label="全部"
+                        data-value-primitive="true"
+                        data-role="dropdownlist">
+                    <option value="NotPaid">没有付款</option>
+                    <option value="Success">支付完成</option>
+                    <option value="Fail">支付失败</option>
+                    <option value="Canceled">支付取消</option>
+                    <option value="Refund">已退款</option>
+                </select>
+                <button type="button" class="k-button k-button-icon" data-bind="click:onSearch"><span class="k-icon k-i-search"></span> 查询</button>
+            </div>
+        </div>
+        <div id="grid"></div>
+    </div>
+</body>
+</html>

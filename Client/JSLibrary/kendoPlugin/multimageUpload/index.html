@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="kendo.multimage.Upload.css" rel="stylesheet" />
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+    <script src="kendo.MultimageUpload.js"></script>
+    <script src="../../../WebConfig.js"></script>
+</head>
+<body>
+    <input data-role="multimageupload" data-bind="value:images" data-limit-count="10" />
+    <script>
+        kendo.ui.MultimageUpload.prototype.options.uploadUrl = WebConfig.ResourceImageUploadUrl;
+
+        var o = kendo.observable({
+            images: [
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/c4102484d80d47b1815026458e9b1e2a", "imageUid": "c4102484d80d47b1815026458e9b1e2a" },
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/58b8fc57f0924965a4262a3fcc60ce3a", "imageUid": "58b8fc57f0924965a4262a3fcc60ce3a" },
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/c4102484d80d47b1815026458e9b1e2a", "imageUid": "c4102484d80d47b1815026458e9b1e2a" },
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/58b8fc57f0924965a4262a3fcc60ce3a", "imageUid": "58b8fc57f0924965a4262a3fcc60ce3a" },
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/c4102484d80d47b1815026458e9b1e2a", "imageUid": "c4102484d80d47b1815026458e9b1e2a" },
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/58b8fc57f0924965a4262a3fcc60ce3a", "imageUid": "58b8fc57f0924965a4262a3fcc60ce3a" },
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/c4102484d80d47b1815026458e9b1e2a", "imageUid": "c4102484d80d47b1815026458e9b1e2a" },
+                { "urlPrefix": "", "url": "http://pub.yibalian.cn/Image/58b8fc57f0924965a4262a3fcc60ce3a", "imageUid": "58b8fc57f0924965a4262a3fcc60ce3a" }
+            ]
+        });
+        kendo.bind($("body"), o);
+    </script>
+</body>
+</html>

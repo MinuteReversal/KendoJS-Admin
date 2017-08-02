@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+                <select request="request" data-role="dropdownlist"
+                        data-text-field="name"
+                        data-value-field="id"
+                        data-option-label="请选择App"
+                        data-bind="value: selectedItem,
+                                   source: list,
+                                   events:{cascade:onCascade}
+                        "></select>
+            </div>
+            <div>
+                <button class="k-button" data-bind="click:onGet">获取值</button>
+                <button class="k-button" data-bind="click:onSet" type="button">设置值</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = kendo.observable({
+            selectedItem: null,
+            list: [{ id: 1, name: "微信" }, { id: 2, name: "QQ" }, { id: 3, name: "微博" }],
+            onGet: function () {
+                alert(JSON.stringify(this.toJSON()));
+            },
+            onSet: function () {
+                this.set("selectedItem", { id: 2, name: "QQ" });
+            },
+            onCascade: function () {
+                alert("修改了选中的项");
+            }
+        });
+        kendo.bind($("body"), vm);
+    </script>
+</body>
+</html>

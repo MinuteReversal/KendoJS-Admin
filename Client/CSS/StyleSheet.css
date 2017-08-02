@@ -1,0 +1,681 @@
+﻿html, body, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial','Helvetica','微软雅黑','PingFang SC','sans-serif','黑体';
+    background-color: #f1f2f3;
+    font-weight: 400;
+    font-style: normal;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+}
+
+.textAlignLeft {
+    text-align: left;
+}
+
+.textAlignRight {
+    text-align: right;
+}
+
+/*#region 按钮*/
+kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #fff;
+  background-color: #333;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+}
+kbd kbd {
+  padding: 0;
+  font-size: 100%;
+  font-weight: bold;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/*#endregion*/
+.header {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 5px 2px #a8a6a7;
+    height: 60px;
+}
+
+    .header .logo {
+        height: 100%;
+        width: 1390px;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+
+        .header .logo > img {
+            height: 70%;
+            float: left;
+        }
+         .header  .logo .line {
+            background-color: #c02c1f;
+            height: 40px;
+            width: 1px;
+            margin: 0 10px;
+            float: left;
+        }
+         .header  .logo  #companyName {
+             float: left;
+             line-height: 40px;
+             font-size: 14px;
+             margin-left: 10px;
+         }
+
+.mainPage {
+    width: 100%;
+    height: auto;
+}
+
+.footer {
+    font-size: 14px;
+    color: #b7b7b7;
+    text-align: center;
+    margin-top: 100px;
+}
+
+    .footer img {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+
+.title {
+    font-size: 24px;
+    color: #C12C1F;
+    height: 60px;
+    padding-left: 10px;
+    border-bottom: 1px solid #C12C1F;
+    line-height: 60px;
+}
+
+.searchForm {
+    padding: 10px;
+}
+
+.searchForm >div {
+    margin-bottom: 10px;
+}
+
+.searchForm >div:last-child {
+    margin-bottom: 0;
+}
+
+.searchForm label {
+    margin: 0 3px 0 3px;
+}
+.numberKey {
+    width: 501px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+    .numberKey ul li {
+        float: left;
+        width: 155px;
+        height: 80px;
+        background: #f8f8f8;
+        box-sizing: border-box;
+        border: 1px solid #797979;
+        border-radius: 10px;
+        font-family: '微软雅黑 Bold', '微软雅黑';
+        font-weight: 700;
+        text-align: center;
+        font-size: 60px;
+        margin: 0 6px 8px 6px;
+        cursor: pointer;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+    }
+
+        .numberKey ul li:active {
+            background: #c9c9c9;
+        }
+
+.writeOff {
+    text-align: center;
+}
+
+    .writeOff p {
+        font-size: 28px;
+        margin: 15px 0;
+    }
+
+    .writeOff input {
+        width: 486px;
+        height: 62px;
+        background: #fff;
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+
+.numberKey .empty {
+    width: 321px !important;
+}
+
+.numberKey .small {
+    font-size: 40px;
+    line-height: 80px;
+}
+/*#region 框架*/
+[data-page="main"] header {
+    height: 60px;
+    background-color: #fdfdfd;
+}
+
+[data-page="main"] .headerbox {
+    margin: auto;
+    padding: 10px 0;
+    width: 1390px;
+}
+
+    [data-page="main"] .headerbox > .logoBox {
+        width: 40px;
+        height: 40px;
+        float: left;
+    }
+
+        [data-page="main"] .headerbox > .logoBox + .line {
+            background-color: #c02c1f;
+            height: 40px;
+            width: 1px;
+            margin: 0 10px;
+            float: left;
+        }
+
+        [data-page="main"] .headerbox > .logoBox > #logo {
+            width: 100%;
+            height: 100%;
+        }
+
+[data-page="main"] #mainbox {
+    margin: 30px auto 0 auto;
+    width: 1440px;
+}
+
+[data-page="main"] {
+    overflow: hidden;
+    clear: both;
+}
+
+    [data-page="main"] .headerbox > #companyName {
+        font-size: 20px;
+        line-height: 40px;
+        color: #c02c1f;
+    }
+
+    [data-page="main"] .rightArea {
+        float: right;
+        margin-right: 30px;
+    }
+
+        [data-page="main"] .rightArea > div {
+            float: left;
+            height: 40px;
+            color: #c02c1f;
+        }
+
+        [data-page="main"] .rightArea .AvatarBox {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+            [data-page="main"] .rightArea .AvatarBox img {
+                width: 40px;
+                height: 40px;
+            }
+
+        [data-page="main"] .rightArea .info {
+            margin-right: 10px;
+            line-height: 20px;
+        }
+
+            [data-page="main"] .rightArea .info > div {
+                height: 20px;
+                text-align: right;
+            }
+
+        [data-page="main"] .rightArea .exit {
+            padding-top: 20px;
+        }
+
+            [data-page="main"] .rightArea .exit > a {
+                line-height: 20px;
+                color: #767676;
+            }
+
+    [data-page="main"] #leftMenu {
+        min-height: 820px;
+        width: 200px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        float: left;
+    }
+
+/*TODO:重写kendo样式*/
+.k-panelbar .k-item > .k-link.k-header {
+}
+
+[data-page="main"] #subPage {
+    background-color: #fdfdfd;
+    width: 1200px;
+    min-height: 820px;
+    margin-left: 40px;
+    float: left;
+}
+
+/*#endregion*/
+
+/*#region 登录页*/
+[data-page="login"] .mainPage {
+    background: url(../Image/loginBg.png) no-repeat;
+    background-size: cover;
+    padding: 132px 0;
+}
+
+[data-page="login"] .loginMain {
+    width: 1390px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+[data-page="login"] .loginCont {
+    width: 360px;
+    height: 390px;
+    border: 1px solid #fff;
+    background: rgba(255,255,255,0.3);
+    border-radius: 25px;
+    float: right;
+    position: relative;
+}
+
+[data-page="login"] .loginRWM {
+    width: 303px;
+    height: 303px;
+    background: #fff;
+    text-align: center;
+    margin: 30px auto 0;
+}
+
+    [data-page="login"] .loginRWM img {
+        width: 100%;
+    }
+
+[data-page="login"] .loginPrompt {
+    margin-top: 10px;
+    text-align: center;
+}
+
+    [data-page="login"] .loginPrompt > span {
+        font-size: 16px;
+        color: #000000;
+    }
+
+    [data-page="login"] .loginPrompt > .refresh {
+        display: inline-block;
+        padding-left: 22px;
+        background: url(../Image/refresh.png) no-repeat;
+        color: #C12C1F !important;
+        margin-left: 65px;
+        line-height: 17px;
+        cursor: pointer;
+    }
+
+[data-page="login"] .invalid {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 303px;
+    height: 303px;
+    background: rgba(255,255,255,0.9);
+}
+
+    [data-page="login"] .invalid > p {
+        text-align: center;
+        font-size: 18px;
+        color: #C12C1F;
+        line-height: 28px;
+    }
+
+        [data-page="login"] .invalid > p:first-child {
+            margin-top: 125px;
+        }
+/*#endregion*/
+
+/*#region 扫码收款*/
+[data-page="sweepCodeCollection"] .money {
+    text-align: center;
+}
+
+[data-page="sweepCodeCollection"] .moneyNum > i,
+[data-page="sweepCodeCollection"] .moneyNum > span {
+    font-weight: 700;
+    font-size: 120px;
+    color: #C12C1F;
+    font-style: normal;
+}
+
+[data-page="sweepCodeCollection"] .moneyPrompt {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+[data-page="sweepCodeCollection"] .payType {
+    text-align: center;
+    width: 510px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+    [data-page="sweepCodeCollection"] .payType > div {
+        float: left;
+        margin: 15px 0;
+    }
+
+
+        [data-page="sweepCodeCollection"] .payType > div > button {
+            width: 235px;
+            height: 100px;
+            font-family: '微软雅黑 Regular', '微软雅黑';
+            font-size: 40px;
+            color: #FFFFFF;
+            border: 1px solid #797979;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #f8f8f8;
+            padding: 20px;
+            margin: 0 10px;
+        }
+
+[data-page="sweepCodeCollection"] #payNum > div.payType {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+    [data-page="sweepCodeCollection"] #payNum > div.payType img {
+        width: 235px;
+        font-family: '微软雅黑 Regular', '微软雅黑';
+        font-size: 40px;
+        color: #FFFFFF;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+[data-page="sweepCodeCollection"] .weChat > button > img {
+    width: 90%;
+}
+
+[data-page="sweepCodeCollection"] .alipay > button > img {
+    width: 70%;
+}
+
+[data-page="sweepCodeCollection"] .applePay > button > img {
+    width: 60%;
+}
+
+[data-page="sweepCodeCollection"] .samsungPay > button > img {
+    width: 90%;
+}
+
+[data-page="sweepCodeCollection"] .payType > div > p {
+    font-size: 20px;
+    color: #b7b7b7;
+    text-align: center;
+    margin-top: 5px;
+}
+
+[data-page="sweepCodeCollection"] .cancel {
+    text-align: center;
+    margin: 20px 0;
+}
+
+    [data-page="sweepCodeCollection"] .cancel > span {
+        color: #169BD5;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+[data-page="sweepCodeCollection"] #PayingWindow .windowDetail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 486px;
+    height: 486px;
+    margin-top: -243px;
+    margin-left: -243px;
+    color: #C9C9C9;
+    background-color: white;
+    z-index: 10002;
+    text-align: center;
+}
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .connecting .payType {
+        width: auto;
+    }
+
+        [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .connecting .payType img {
+            height: 60px;
+            margin: 60px auto;
+        }
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .scanOK {
+        font-size: 36px;
+        margin: 30px auto;
+        color: #868686;
+    }
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .text {
+        font-size: 30px;
+        color: #333333;
+        max-width: 230px;
+        clear: both;
+        overflow: hidden;
+        margin: 30px auto;
+    }
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .countdown {
+        margin: 50px auto;
+        font-size: 20px;
+        color: #C12C1F;
+    }
+
+        [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .countdown span {
+            font-size: 40px;
+        }
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .resultImage {
+        margin-top: 50px;
+    }
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .result {
+        margin-top: 30px;
+        font-size: 36px;
+        color: #868686;
+    }
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .reason {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+    [data-page="sweepCodeCollection"] #PayingWindow .windowDetail .tip {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+/*#endregion*/
+
+/*#region 电子券核销*/
+[data-page="writeOff"] .voucher {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -330px;
+    margin-left: -330px;
+    width: 660px;
+    height: 600px;
+    z-index: 10002;
+    background-color: white;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+[data-page="writeOff"] .voucherInfo {
+    height: 455px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+[data-page="writeOff"] .promptInfo {
+    height: 145px;
+    width: 658px;
+    border: 1px solid #797979;
+    border-top: none !important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+}
+
+[data-page="writeOff"] .orange {
+    background: #dd5510;
+}
+
+[data-page="writeOff"] .blue {
+    background: #2ca6e0;
+}
+
+[data-page="writeOff"] .gray {
+    background: #a1a1a1;
+}
+
+[data-page="writeOff"] .red {
+    background: #d92717;
+}
+
+[data-page="writeOff"] .close {
+    overflow: hidden;
+    padding: 20px 20px 0;
+}
+
+    [data-page="writeOff"] .close > span {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background: url(../Image/close.png) no-repeat;
+        float: right;
+    }
+
+[data-page="writeOff"] .voucherInfo {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+[data-page="writeOff"] .voucherName > p {
+    font-size: 48px;
+}
+
+[data-page="writeOff"] .voucherNum {
+    font-size: 80px;
+    margin: 35px 0;
+}
+
+[data-page="writeOff"] .voucherTime {
+    font-size: 28px;
+}
+
+[data-page="writeOff"] #productsList .bottons {
+    text-align: center;
+}
+
+[data-page="writeOff"] .confirmBtn {
+    background: #00a0e9;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 100px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+[data-page="writeOff"] .cancelBtn {
+    color: #169BD5;
+    width: 300px;
+    height: 100px;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+[data-page="writeOff"] .overdue {
+    font-size: 28px;
+    line-height: 130px;
+}
+
+[data-page="writeOff"] .promptInfo > div {
+    padding: 15px 150px 0;
+}
+
+    [data-page="writeOff"] .promptInfo > div > p {
+        font-size: 28px;
+        text-align: left;
+    }
+
+.lableText {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+
+[data-page="writeOff"] .viewProducts {
+    line-height: 120px;
+    font-size: 30px;
+    color: #169bd5;
+    cursor: pointer;
+}
+
+[data-page="writeOff"] #productsList {
+    display: none;
+}
+
+[data-page="writeOff"] .info {
+    margin: 10px;
+}
+
+[data-page="writeOff"] .ProductImage img {
+    width: 80px;
+    height: 80px;
+}
+/*#endregion*/
+
+[data-page="expired"] #failedPage {
+    background-color: #fdfdfd;
+    width: 1390px;
+    min-height: 820px;
+    float: left;
+}

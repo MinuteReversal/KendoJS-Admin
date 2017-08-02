@@ -1,0 +1,12 @@
+﻿CACHE MANIFEST
+# 2015-08-14 v1.0.53.295
+Release/app.min.css
+WebConfig.js
+Release/app.min.js
+index.html
+
+NETWORK:
+*
+
+FALLBACK:
+NoWiFi.html

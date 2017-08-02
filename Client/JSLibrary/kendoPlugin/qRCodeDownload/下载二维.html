@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+    <script src="kendo.QRCodeDownload.js"></script>
+</head>
+<body>
+    <button class="k-button" onclick="ex1();">下载二维码1</button>
+    <button class="k-button" onclick="ex2();">下载二维码2</button>
+    <button class="k-button" onclick="ex3();">下载二维码3</button>
+    <div id="QRCode"></div>
+    <div id="bindArea">
+        <div data-role="qrcodedownload" data-bind="value:value"></div>
+    </div>
+    <script>
+        var o = kendo.observable({
+            value: "go go go",
+            isVisible: false
+        });
+        kendo.bind($("#bindArea"), o);
+
+        $("#QRCode").kendoQRCodeDownload({ value: "world" });
+        function ex1() {
+            $("#QRCode").data("kendoQRCodeDownload").open();
+        }
+
+        function ex2() {
+            kendo.qRCodeDownload("http://baidu.com","大家好");
+        }
+
+        function ex3() {
+            o.set("isVisible", true);
+        }
+    </script>
+</body>
+</html>

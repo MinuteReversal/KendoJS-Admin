@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <script>
+        var a = [
+            {
+                start: 1, end: 20, area: "B",src=""
+            },
+            {
+                start: 40, end: 50, area: "C",src=""
+            }
+        ]
+
+
+
+
+        Enumerable.From(a).Where(function (x) { return x.start > 10 && x.end < 10 && x.Contains("B");}).ToArray();
+
+    </script>
+</body>
+</html>

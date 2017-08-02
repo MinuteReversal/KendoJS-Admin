@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <p><label><input type="checkbox" data-bind="checked: slideValue" />toggle slideValue</label></p>
+    <div id="target" style="width:200px;height:200px;background:#fc9;" data-bind="slide: slideValue">
+        Orange Square.
+    </div>
+    <script>
+        kendo.data.binders.slide = kendo.data.Binder.extend({
+            refresh: function() {
+                var value = this.bindings["slide"].get();
+
+                if (value) {
+                    $(this.element).slideDown();
+                } else {
+                    $(this.element).slideUp();
+                }
+            }
+        });
+
+        var viewModel = kendo.observable({
+            slideValue: true
+        });
+
+        kendo.bind(document.body, viewModel);
+    </script>
+</body>
+</html>

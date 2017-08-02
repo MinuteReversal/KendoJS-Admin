@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮主页面</title>
+    <link href="/JSLibrary/kendo/styles/web/kendo.common.css" rel="stylesheet" />
+    <link href="/JSLibrary/kendo/styles/web/kendo.default.css" rel="stylesheet" />
+    <link href="/CSS/StyleSheet.css" rel="stylesheet" />
+    <!--常用库-->
+    <script src="/JSLibrary/guid.js"></script>
+    <script src="/JSLibrary/dateformat.js"></script>
+    <!--js框架-->
+    <script src="/JSLibrary/jquery-2.2.4.js"></script>
+    <script src="/JSLibrary/jquery.signalR-2.2.0.js"></script>
+    <script src="/JSLibrary/hubs.js"></script>
+    <script src="/JSLibrary/jquery.qrcode.min.js"></script>
+    <!--kendo-->
+    <script src="/JSLibrary/kendo/kendo.all.js"></script>
+    <script src="/JSLibrary/kendo/kendo.aspnetmvc.js"></script>
+    <script src="/JSLibrary/kendo/cultures/kendo.culture.zh-CHS.js"></script>
+    <script src="/JSLibrary/kendo/messages/kendo.messages.zh-CN.js"></script>
+    <!--kendo自定义组件-->
+    <script src="/JSLibrary/kendoWidget/CustomValidatorDisplayName/CustomValidatorDisplayName.js"></script>
+    <script src="/JSLibrary/kendoWidget/Confirm/Confirm.js"></script>
+    <script src="/JSLibrary/kendoWidget/LoadingMask/LoadingMask.js"></script>
+    <script src="/JSLibrary/kendoWidget/Notification/Notification.js"></script>
+    <script src="/JSLibrary/kendoWidget/Alert/Alert.js"></script>
+    <script src="/JSLibrary/kendoWidget/Confirm/Confirm.js"></script>
+    <!--自定义框架-->
+    <script src="/WebConfig.js"></script>
+    <script src="/Model/HtmlModel.js"></script>
+    <script src="/Model/RoleModel.js"></script>
+    <script src="/Model/UserModel.js"></script>
+    <script src="/Javascript/user.js"></script>
+    <script src="/JSLibrary/framework.js"></script>
+    <!--业务-->
+    <script src="/Javascript/indexdebug.js"></script>
+    <script src="/Javascript/login.js"></script>
+    <script src="/Javascript/Home/main.js"></script>
+    <script src="/Javascript/CashierCenter/receivables.js"></script>
+    <script src="/Javascript/CashierCenter/sweepCodeCollection.js"></script>
+    <script src="/Javascript/VerificationCenter/verification.js"></script>
+    <script src="/Javascript/VerificationCenter/writeOff.js"></script>
+</head>
+<body>
+    <div data-page="main">
+        <header>
+            <div class="headerbox">
+                <div class="logoBox">
+                    <img id="logo" src="/Image/logo.png" alt="" />
+                </div>
+                <div class="line"></div>
+                <span id="companyName">嘉华食品</span>
+                <div class="rightArea">
+                    <div class="AvatarBox">
+                        <img id="Avatar" src="/Image/avatar.png" alt="" />
+                    </div>
+                    <div class="info">
+                        <div id="shopName">南屏店</div>
+                        <div id="userName">隔壁老王</div>
+                    </div>
+                    <div class="exit">
+                        <a>退出</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section id="mainbox">
+            <ul id="leftMenu">
+                <li>
+                    收银中心
+                    <ul>
+                        <li data-href="/CashierCenter/sweepCodeCollection.html">扫码收款</li>
+                        <li data-href="/CashierCenter/receivables.html">收款明细</li>
+                    </ul>
+                </li>
+                <li>
+                    核销中心
+                    <ul>
+                        <li data-href="/VerificationCenter/writeOff.html">扫码核销</li>
+                        <li data-href="/VerificationCenter/verification.html">核销明细</li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="subPage"><div style="text-align: center; margin-top: 400px; ">欢迎使用掌柜帮,点击左则菜单进行导航。</div></div>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <link href="../JSLibrary/kendo/styles/web/kendo.common.css" rel="stylesheet" />
+    <link href="../JSLibrary/kendo/styles/web/kendo.default.css" rel="stylesheet" />
+    <link href="../CSS/StyleSheet.css" rel="stylesheet" />
+    <!--常用库-->
+    <script src="../JSLibrary/guid.js"></script>
+    <script src="../JSLibrary/dateformat.js"></script>
+    <!--js框架-->
+    <script src="../JSLibrary/jquery-2.2.4.js"></script>
+    <script src="../JSLibrary/jquery.signalR-2.2.0.js"></script>
+    <script src="../JSLibrary/hubs.js"></script>
+    <script src="../JSLibrary/jquery.qrcode.min.js"></script>
+    <!--kendo-->
+    <script src="../JSLibrary/kendo/kendo.all.js"></script>
+    <script src="../JSLibrary/kendo/kendo.aspnetmvc.js"></script>
+    <script src="../JSLibrary/kendo/cultures/kendo.culture.zh-CHS.js"></script>
+    <script src="../JSLibrary/kendo/messages/kendo.messages.zh-CN.js"></script>
+</head>
+<body>
+    <script>
+        //http://docs.telerik.com/kendo-ui/intro/widget-basics/create-custom-kendo-widget#define-data-bound-and-data-binding-events
+        (function ($) {
+            var kendo = window.kendo;
+
+            var SelectedTextBox = kendo.ui.Widget.extend({
+                init: function (element, options) {
+                    var that = this;
+                    kendo.ui.Widget.fn.init.call(that, element, options);
+
+                    this._changeHandler = $.proxy(that._change, that);
+                    this.element.on("change", that._changeHandler);
+                    this.element.on("focus", that._focus);
+                },
+
+                options: {
+                    name: "SelectedTextBox"
+                },
+
+                _change: function () {
+                    this._value = this.element.val();
+                    this.trigger("change");
+                },
+
+                _focus: function () {
+                    this.select();
+                },
+
+                value: function (value) {
+                    if (value !== undefined) {
+                        this.element.val(value);
+                    } else {
+                        return this.element.val();
+                    }
+                },
+
+                destroy: function () {
+                    this.element.off("change", this._changeHandler);
+                    this.element.off("focus", this._focus);
+                }
+            });
+
+            kendo.ui.plugin(SelectedTextBox);
+        })(jQuery);
+    </script>
+    <input type="text" data-role="selectedtextbox" data-bind="value:foo" />
+    <script>
+        var viewModel = kendo.observable({
+            foo: "bar"
+        });
+
+        kendo.bind(document.body, viewModel);
+    </script>
+</body>
+</html>

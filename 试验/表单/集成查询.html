@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<div id="queryPanel" class="searchForm">
+    <div>
+        <label class="control-label" for="queryNickname">昵称</label>
+        <input id="queryNickname" type="text" class="form-control k-textbox" data-bind="value:NickNameInWechat" placeholder="昵称"/>
+    </div>
+    <div>
+        <label class="control-label" for="optionTimeJoined">入会时间</label>
+        <select id="optionTimeJoined" type="text" class="k-textbox"
+                data-bind="source:TimeJoinedRanges, value:TimeJoinedRange, events: { change: onTimeJoinedRangeChange }"
+                data-option-label="自定义日期范围"
+                data-value-primitive="true"
+                data-role="dropdownlist"></select>
+    </div>
+    <div>
+        <label class="control-label" for="queryTimeJoinedStart">从</label>
+        <input id="queryTimeJoinedStart" type="date" class=""
+               data-role="datetimepicker"
+               data-bind="value:TimeJoinedStart, events: { change: onTimeJoinedStartOrEndChange }"
+               data-format="yyyy-MM-dd HH:mm"
+               data-interval="60"/>
+    </div>
+    <div>
+        <label class="control-label" for="queryTimeJoinedEnd">至</label>
+        <input id="queryTimeJoinedEnd" type="date" class=""
+               data-role="datetimepicker"
+               data-bind="value:TimeJoinedEnd, events: { change: onTimeJoinedStartOrEndChange }"
+               data-format="yyyy-MM-dd HH:mm"
+               data-interval="60"/>
+    </div>
+    <div>
+        <label class="control-label" for="queryPhone">手机号</label>
+        <input id="queryPhone" type="text" class="k-textbox"
+               data-bind="value:MobilePhone" placeholder="手机号"/>
+    </div>
+    <div>
+        <button type="button" class="k-button k-button-icon" data-bind="click:onSearch"><span class="k-icon k-i-search"></span>查询</button>
+    </div>
+</div>
+
+</body>
+</html>

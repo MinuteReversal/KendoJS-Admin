@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<!--<html manifest="Web.appcache">-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <!--自定义框架-->
+    <script src="kendo.ckeditor.js"></script>
+</head>
+<body>
+    <div data-page="verification">
+        <div class="title">
+            CKEditor
+        </div>
+        <div id="view">
+            <form method="post" action="#" id="f">
+                <textarea id="CKEditor"
+                          data-role="ckeditor"
+                          data-plugins="['kendoImageBrowser','pasteimage','codemirror']"
+                          data-contents-css="['../../../CSS/testA.css','../../../CSS/testB.css']"
+                          data-body-class="['bg','f']"
+                          data-bind="value:SomeText,events:{change:onChange}"></textarea>
+                <input id="btnGet" value="获取值" class="k-button" type="button" data-bind="click:getValue" />
+                <input id="btnGetEncode" value="获取值html加码" class="k-button" type="button" data-bind="click:getHtml" />
+            </form>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                SomeText: "<p>Hello</p>",
+                SomeHTML: "",
+                onChange: function (e) {
+                    this.set("SomeHTML", e.sender.encodedValue());
+                },
+                getValue: function (e) {
+                    alert(this.get("SomeText"));
+                },
+                getHtml: function (e) {
+                    alert(this.get("SomeHTML"));
+                }
+            });
+
+            kendo.bind($("#view"), viewModel);
+            viewModel.set("SomeText", "abc");
+        </script>
+    </div>
+</body>
+</html>

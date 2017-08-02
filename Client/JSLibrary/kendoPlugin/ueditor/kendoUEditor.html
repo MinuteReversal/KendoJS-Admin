@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<!--<html manifest="Web.appcache">-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <link href="../../../JSLibrary/kendo/styles/web/kendo.common.css" rel="stylesheet" />
+    <link href="../../../JSLibrary/kendo/styles/web/kendo.default.css" rel="stylesheet" />
+    <link href="../../../CSS/StyleSheet.css" rel="stylesheet" />
+    <!--常用库-->
+    <script src="../../../JSLibrary/guid.js"></script>
+    <script src="../../../JSLibrary/dateformat.js"></script>
+    <!--js框架-->
+    <script src="../../../JSLibrary/jquery-2.2.4.js"></script>
+    <script src="../../../JSLibrary/jquery.signalR-2.2.0.js"></script>
+    <script src="../../../JSLibrary/hubs.js"></script>
+    <script src="../../../JSLibrary/jquery.qrcode.min.js"></script>
+    <!--kendo-->
+    <script src="../../../JSLibrary/kendo/kendo.all.js"></script>
+    <script src="../../../JSLibrary/kendo/kendo.aspnetmvc.js"></script>
+    <script src="../../../JSLibrary/kendo/cultures/kendo.culture.zh-CHS.js"></script>
+    <script src="../../../JSLibrary/kendo/messages/kendo.messages.zh-CN.js"></script>
+    <!--kendo自定义组件-->
+    <script src="../customValidatorDisplayName/customValidatorDisplayName.js"></script>
+    <script src="../confirm/confirm.js"></script>
+    <script src="../loadingMask/loadingMask.js"></script>
+    <script src="../notification/notification.js"></script>
+    <script src="../alert/alert.js"></script>
+    <script src="../confirm/confirm.js"></script>
+    <script src="kendo.ueditor.js"></script>
+    <!--自定义框架-->
+    <script src="../../../WebConfig.js"></script>
+    <script>
+
+    </script>
+    <script type="text/javascript" charset="utf-8" src="./ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./editor_api.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="./ueditor-1.4.3.3/lang/zh-cn/zh-cn.js"></script>
+    <script src="ueditor-1.4.3.3/plugins/kendoImageBrowser.js"></script>
+</head>
+<body>
+    <div data-page="verification">
+        <div class="title">
+            UEditor
+        </div>
+        <div id="view">
+            <textarea id="UEditor"
+                      data-role="ueditor"
+                      data-options=""
+                      data-bind="value:ueditorValue"></textarea>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                ueditorValue: "Hello"
+            });
+
+            kendo.bind($("#view"), viewModel);
+
+            viewModel.set("ueditorValue", "abc");
+        </script>
+    </div>
+</body>
+</html>

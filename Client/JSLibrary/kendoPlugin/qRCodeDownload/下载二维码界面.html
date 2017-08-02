@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <button class="k-button" onclick="onDownloadQRCode();">下载二维码</button>
+    <div id="QRCode" class="k-popup-edit-form">
+        <div class="k-edit-form-container">
+            <div class="" data-role="qrcode" data-render-as="svg" data-error-correction="M" data-bind="value: qrcode"></div>
+            <div class="k-edit-label">
+                <label>宽度：</label>
+            </div>
+            <div class="k-edit-field">
+                <input class="k-input k-textbox" required="required" type="number" data-role="" data-bind="value:ProductName">
+            </div>
+            <div class="k-edit-label">
+                <label>高度：</label>
+            </div>
+            <div class="k-edit-field" data-container-for="UnitPrice">
+                <input class="k-input k-textbox" required="required" type="number" data-bind="value:ProductName">
+            </div>
+            <div class="k-edit-buttons k-state-default">
+                <a class="k-button" href="#">
+                    <span class="k-font-icon k-i-image"></span>JPEG
+                </a>
+                <a class="k-button" href="#">
+                    <span class="k-font-icon k-i-image"></span>PNG
+                </a>
+                <a class="k-button k-primary" href="#">
+                    <span class="k-font-icon k-i-file"></span>Zip
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#QRCode").kendoWindow({
+            actins: ["Close"],
+            title: "下载二维码",
+            modal: true,
+            resizable: false,
+            visible: false
+        });
+
+        function onDownloadQRCode() {
+            $("#QRCode").data("kendoWindow").center().open();
+        }
+    </script>
+</body>
+</html>

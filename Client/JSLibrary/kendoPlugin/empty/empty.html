@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<!--<html manifest="Web.appcache">-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+    <!--自定义插件-->
+    <script src="kendo.empty.js"></script>
+</head>
+<body>
+    <div id="empty" data-role="empty" data-bind="value:inputValue" ></div>
+    <button class="k-button" data-bind="click:setValue">设置值</button>
+    <button class="k-button" data-bind="click:getValue">获取值</button>
+    <script>
+        var vm = kendo.observable({
+            inputValue: "Some words",
+            setValue: function () {
+                this.set("inputValue", "helloworld");
+            },
+            getValue: function () {
+                kendo.alert(this.get("inputValue"));
+            }
+        });
+        kendo.bind($("body"), vm);
+    </script>
+</body>
+</html>

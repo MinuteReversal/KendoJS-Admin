@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+    <script src="kendo.keywords.js"></script>
+</head>
+<body>
+    <script>
+        kendo.keywords({
+            title: "添加关键字",
+            keywords: ["大家", "好", "才是", "真的好"],
+            modal: true,
+            onConfirm: function (keywords) {
+                kendo.alert(keywords.join(","));
+            },
+            onCancel: function () {
+
+            }
+        });
+    </script>
+</body>
+</html>

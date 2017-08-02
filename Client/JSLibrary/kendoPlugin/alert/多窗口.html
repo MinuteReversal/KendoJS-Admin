@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <button onclick="onShow();" class="k-button k-primary">出来吧</button>
+    <div id="d1">11</div>
+    <div id="d2">22</div>
+    <script>
+        var d1 = $("#d1").kendoWindow({ modal: true, visible: false }).data("kendoWindow");
+        var d2 = $("#d2").kendoWindow({ modal: true, visible: false }).data("kendoWindow");
+        function onShow() {
+            kendo.alert(Date.now());
+            kendo.alert(Date.now());
+            kendo.alert(Date.now());
+            d1.center().open();
+            d2.center().open();
+        }
+    </script>
+</body>
+</html>

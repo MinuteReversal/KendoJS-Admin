@@ -1,0 +1,20 @@
+﻿{
+  "Data": [
+    {
+      "Guid": "4AC2B1F1-6E13-40A2-8849-FC411B6A0866",
+      "PictureUrl": "/Image/u383.png",
+      "Name": "洽洽 坚果炒货 大包装量贩 五香瓜子 500g",
+      "Money": 19.90,
+      "Count": 1
+    },
+    {
+      "Guid": "000740C7-732A-45AA-9A83-522727EA358F",
+      "PictureUrl": "/Image/u405.png",
+      "Name": "憨豆熊 坚果干果零食年货礼盒送礼臻品佳礼礼盒 1598g",
+      "Money": 99.00,
+      "Count": 1
+    }
+  ],
+  "Error": "",
+  "Total": 2
+}

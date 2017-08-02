@@ -1,0 +1,20 @@
+﻿{
+  "Data": [
+    {
+      "WriteOffTime": "\/Date(1464233014654)\/",
+      "Coupons": "果冻类商品抵20元",
+      "CouponType": "Coupon",
+      "CouponPassword": "0123456789",
+      "Operator": "小明"
+    },
+    {
+      "WriteOffTime": "\/Date(1464233014654)\/",
+      "Coupons": "邮报商品9折优惠",
+      "CouponType": "DiscountCoupon",
+      "CouponPassword": "0123456789",
+      "Operator": "王麻子"
+    }
+  ],
+  "Error": "",
+  "Total": 2
+}

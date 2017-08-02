@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<!--<html manifest="Web.appcache">-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>掌柜帮</title>
+    <link href="../../../JSLibrary/kendo/styles/web/kendo.common.css" rel="stylesheet" />
+    <link href="../../../JSLibrary/kendo/styles/web/kendo.default.css" rel="stylesheet" />
+    <link href="../../../CSS/StyleSheet.css" rel="stylesheet" />
+    <!--常用库-->
+    <script src="../../../JSLibrary/guid.js"></script>
+    <script src="../../../JSLibrary/dateformat.js"></script>
+    <!--js框架-->
+    <script src="../../../JSLibrary/jquery-2.2.4.js"></script>
+    <script src="../../../JSLibrary/jquery.signalR-2.2.0.js"></script>
+    <script src="../../../JSLibrary/hubs.js"></script>
+    <script src="../../../JSLibrary/jquery.qrcode.min.js"></script>
+    <!--kendo-->
+    <script src="../../../JSLibrary/kendo/kendo.all.js"></script>
+    <script src="../../../JSLibrary/kendo/kendo.aspnetmvc.js"></script>
+    <script src="../../../JSLibrary/kendo/cultures/kendo.culture.zh-CHS.js"></script>
+    <script src="../../../JSLibrary/kendo/messages/kendo.messages.zh-CN.js"></script>
+    <!--kendo自定义组件-->
+    <script src="../customValidatorDisplayName/customValidatorDisplayName.js"></script>
+    <script src="../confirm/confirm.js"></script>
+    <script src="../loadingMask/loadingMask.js"></script>
+    <script src="../notification/notification.js"></script>
+    <script src="../alert/alert.js"></script>
+    <script src="../confirm/confirm.js"></script>
+
+    <!--CKEditor-->
+    <script src="../../../WebConfig.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="ckeditor/config.js"></script>
+    <!--自定义框架-->
+    <script src="kendo.ckeditor.js"></script>
+</head>
+<body>
+    <div data-page="verification">
+        <div class="title">
+            CKEditor
+        </div>
+        <div id="view">
+            <form method="post" action="#" id="f">
+                <textarea id="CKEditor"
+                          data-role="ckeditor"
+                          data-bind="value:SomeText"></textarea>
+                <input id="btnGet" value="获取值" type="button" data-bind="click:getValue" />
+            </form>
+        </div>
+        <script>
+            var ck = CKEDITOR.replace(document.getElementById("CKEditor"));
+            ck.setData('<h2>2016最云南 舌尖上的云味&mdash;&mdash;一周一席宴评选活动</h2><div class="content"><div class="banner-module swiper-containe swiper-container-horizontal swiper-wp8-horizontal"><div class="swiper-wrapper"><div class="swiper-slide swiper-slide-duplicate swiper-slide-next" style="width:2548px"><a href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/intro/1"><img class="swiper-slide-img" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/banner/1_161874.jpg" /> </a></div><div class="swiper-slide swiper-slide-prev" style="width:2548px"><a href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/intro/1"><img class="swiper-slide-img" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/banner/1_161874.jpg" /> </a></div><div class="swiper-slide swiper-slide-active swiper-slide-duplicate" style="width:2548px"><a href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/intro/1"><img class="swiper-slide-img" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/banner/1_161874.jpg" /> </a></div></div><div class="pagination-point swiper-pagination swiper-pagination-bullets swiper-pagination-clickable">&nbsp;</div></div><div class="navigation-module"><a class="nav-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/intro/1"><img src="http://www.topyunnan.cn/zuiyunnan_new/public/img/ballot/intro.png" /></a><p><a class="nav-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/intro/1">活动介绍</a></p><a class="nav-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/rank/1"><img src="http://www.topyunnan.cn/zuiyunnan_new/public/img/ballot/rank.png" /></a><p><a class="nav-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/rank/1">排名</a></p><a class="nav-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/search/1"><img src="http://www.topyunnan.cn/zuiyunnan_new/public/img/ballot/search.png" /></a><p><a class="nav-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/search/1">搜索</a></p></div><div class="state-navigation"><ul>	<li><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/15"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_928051.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/15">西双版纳</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/16"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_738502.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/16">保山</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/19"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_920172.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/19">红河</a></p>	</li>	<li><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/20"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_827827.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/20">迪庆</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/21"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_448222.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/21">怒江</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/23"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_935074.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/23">楚雄</a></p>	</li>	<li><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/24"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_610138.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/24">大理</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/25"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_601378.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/25">德宏</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/26"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_414360.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/26">临沧</a></p>	</li>	<li><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/27"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_609200.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/27">曲靖</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/28"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_398487.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/28">普洱</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/29"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_744519.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/29">丽江</a></p>	</li>	<li><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/30"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_257975.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/30">文山</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/31"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_331645.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/31">昭通</a></p>	<a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/32"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_276151.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/32">昆明</a></p>	</li>	<li><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/33"><img alt="state" src="http://www.topyunnan.cn/zuiyunnan/public/uploadfiles/ballot/kind/1_916196.jpg" /></a>	<p><a class="state-tab" href="http://www.topyunnan.cn/zuiyunnan_new/public/ballot/kind/1/33">玉溪</a></p>	</li></ul></div></div>"');
+        </script>
+    </div>
+</body>
+</html>

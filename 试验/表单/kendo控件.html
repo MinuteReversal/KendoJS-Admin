@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <!--http://docs.telerik.com/kendo-ui/api/javascript/ui/ui-->
+    <script src="../css.js"></script>
+    <script src="../references.js"></script>
+</head>
+<body>
+    <fieldset id="fieldset">
+        <legend>个人信息收集</legend>
+        <div>
+            <label for="name">姓名</label><input id="name" name="name" type="text" data-bind="value:name" class="k-textbox" placeholder="姓名" />
+        </div>
+        <div>
+            <label for="birthday">生日</label><input id="birthday" name="birthday" data-bind="value:birthday" data-role="datepicker" />
+        </div>
+        <div>
+            <label for="score">分数</label><input id="score" name="score" data-min="0" data-max="100" data-bind="value:score" data-role="slider" type="number" />
+        </div>
+        <div>
+            <input type="file" accept="image/*" data-bind="events:{select:onPreview}" data-role="upload" />
+        </div>
+        <div>
+            <img data-bind="attr:{src:avatar}" />
+        </div>
+        <div>
+            <input type="radio" name="gender" id="female" value="女" data-bind="checked:gender" class="k-radio" /><label class="k-radio-label" for="female">女</label>
+            <input type="radio" name="gender" id="male" value="男" data-bind="checked:gender" class="k-radio" /><label class="k-radio-label" for="male">男</label>
+        </div>
+        <div>
+            <input id="hasCar" name="hasCar" type="checkbox" data-bind="checked:hasCar" data-type="boolean" class="k-checkbox" /><label class="k-checkbox-label" for="hasCar">有车</label>
+        </div>
+        <div>
+            <input id="hasEstate" name="hasCar" type="checkbox" data-bind="checked:hasEstate" data-type="boolean" class="k-checkbox" /><label class="k-checkbox-label" for="hasEstate">有房</label>
+        </div>
+        <div>
+            <p>爱好</p>
+            <input id="music" name="favorite" value="音乐" type="checkbox" data-bind="checked:favorite" class="k-checkbox" /><label class="k-checkbox-label" for="music">听音乐</label>
+            <input id="footerball" name="favorite" value="足球" type="checkbox" data-bind="checked:favorite" class="k-checkbox" /><label class="k-checkbox-label" for="footerball">踢足球</label>
+            <input id="basketball" name="favorite" value="篮球" type="checkbox" data-bind="checked:favorite" class="k-checkbox" /><label class="k-checkbox-label" for="basketball">打篮球</label>
+        </div>
+        <div>
+            <label for="language">住址</label>
+            <select id="address" name="address" data-bind="value:address" data-role="dropdownlist">
+                <option value="昆明">昆明</option>
+                <option value="呈贡">呈贡</option>
+            </select>
+        </div>
+        <div>
+            <label for="language">编程语言</label><br />
+            <select id="language" name="language" multiple="multiple" data-bind="value:language" data-role="multiselect">
+                <option value="Basic">Basic</option>
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Python">Python</option>
+                <option value="Ruby">Ruby</option>
+            </select>
+        </div>
+        <input id="btnGetInfo" type="button" value="获取数据" data-bind="click:onGetData" class="k-button"/>
+    </fieldset>
+    <script>
+        var viewModel = new kendo.data.ObservableObject({
+            avatar: "avatar.png",
+            name: "zhy",
+            birthday: new Date(),
+            score: 100,
+            gender: "男",
+            enabled: true,
+            hasCar: false,
+            hasEstate: true,
+            favorite: ["音乐"],
+            address: "呈贡",
+            language: ["C", "Java"],
+            onGetData: function (e) {
+                alert(JSON.stringify(this));
+            },
+            onPreview: function (e) {
+                var that = this;
+                var file = e.files[0].rawFile;
+                var fd = new FileReader();
+                fd.addEventListener("load", function (loadEvent) {
+                    that.set("avatar", loadEvent.target.result);
+                })
+                fd.readAsDataURL(file);
+            }
+        });
+
+        kendo.bind("fieldset", viewModel);
+    </script>
+</body>
+</html>
